@@ -89,6 +89,7 @@
                 Selamat!
             </h2>
             <h2 id="alert-title" class="text-2xl font-extrabold text-red-700 mb-1 drop-shadow"></h2>
+            <h2 id="alert-address" class="text-2xl font-extrabold text-red-700 mb-1 drop-shadow"></h2>
             <button type="button"
                     class="mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md
                         transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer"
@@ -177,10 +178,11 @@
                 }
             }
 
-            function showCustomAlert(title, message) {
+            function showCustomAlert(title, address, id) {
                 const alert = document.getElementById("custom-alert");
                 const alertBox = document.getElementById("custom-alert-box");
-                document.getElementById("alert-title").textContent = title;
+                document.getElementById("alert-title").textContent = "("+id+") " + title;
+                document.getElementById("alert-address").textContent = address;
 
                 // Show
                 alert.classList.add("show");
@@ -241,7 +243,7 @@
                 //Pass Winner ID
                 idWinner = indicatedSegment.id;
                 //Show Alert Winner
-                showCustomAlert(indicatedSegment.nama);
+                showCustomAlert(indicatedSegment.nama, indicatedSegment.alamat, indicatedSegment.id);
                 
                 theWheel.stopAnimation(false);
                 wheelSpinning = false;
