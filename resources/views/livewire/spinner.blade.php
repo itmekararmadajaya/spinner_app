@@ -181,11 +181,11 @@
                 }
             }
 
-            function showCustomAlert(title, address, id) {
+            function showCustomAlert(name, city, id) {
                 const alert = document.getElementById("custom-alert");
                 const alertBox = document.getElementById("custom-alert-box");
-                document.getElementById("alert-title").textContent = title + " ("+id+")";
-                document.getElementById("alert-address").textContent = address;
+                document.getElementById("alert-title").textContent = name + " ("+id+")";
+                document.getElementById("alert-address").textContent = city;
 
                 // Show
                 alert.classList.add("show");
@@ -246,7 +246,7 @@
                 //Pass Winner ID
                 idWinner = indicatedSegment.id;
                 //Show Alert Winner
-                showCustomAlert(indicatedSegment.nama, indicatedSegment.alamat, indicatedSegment.id);
+                showCustomAlert(indicatedSegment.full_name, indicatedSegment.city, indicatedSegment.id);
                 
                 theWheel.stopAnimation(false);
                 wheelSpinning = false;

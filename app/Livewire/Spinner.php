@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\SpinParticipant;
 use App\Models\TestData;
 use Livewire\Component;
 
@@ -14,16 +15,15 @@ class Spinner extends Component
     }
 
     public function getData(){
-        $datas = TestData::where('is_win', 0)->get();
+        $datas = SpinParticipant::where('is_win', 0)->get();
         $finalDatas = [];
         foreach($datas as $data){
             $finalDatas[] = [
                     'fillStyle' => $data->fill_style,
                     'id' => $data->id,
-                    'text' => $data->id."",
-                    'nama' => $data->nama,
-                    'alamat' => $data->alamat,
-                    'no_wa' => $data->no_wa,
+                    'full_name' => $data->full_name,
+                    'name' => $data->name,
+                    'city' => $data->city,
                 ];
         }
         
@@ -31,7 +31,7 @@ class Spinner extends Component
     }
 
     public function updateWinner($id){
-        $data = TestData::where('id', $id)->first();
+        $data = SpinParticipant::where('id', $id)->first();
         $data->is_win = true;
         $data->save();
     }
