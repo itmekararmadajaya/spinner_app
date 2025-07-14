@@ -31,11 +31,11 @@
                         stroke="#B91C1C"
                         stroke-width="2"
                         style="position: absolute;
-                                top: -43px;
+                                top: -51px;
                                 left: 52%;
                                 transform: translateX(-50%) rotate(180deg);
-                                width: 60px;
-                                height: 80px;
+                                width: 80px;
+                                height: 100px;
                                 z-index: 10;">
                         <path d="M12 2L6 12h12L12 2z" />
                     </svg>
@@ -80,24 +80,27 @@
             </div>
         </div>
     </div>
-    <div id="custom-alert" class="hidden fixed inset-0 flex items-center justify-center z-[9999] -rotate-90">
+    <div id="custom-alert" class="hidden fixed inset-0 flex items-center justify-center z-[9999] -rotate-90 w-full">
         <div id="custom-alert-box"
-            class="bg-yellow-50 rounded-2xl shadow-2xl border-4 border-red-700 text-center p-6 max-w-sm w-full
+            class="bg-yellow-50 rounded-2xl shadow-2xl border-4 border-red-700 text-center p-6 w-[50%]
                     transform scale-95 opacity-0 transition-all duration-500 ease-out">
-            <div class="text-5xl mb-3">🎉</div>
-            <h2 class="text-3xl font-extrabold text-red-700 mb-1 drop-shadow">
+            <div class="text-7xl mb-3">🎉</div>
+            <h2 class="text-6xl font-extrabold text-red-700 mb-1 drop-shadow">
                 Selamat!
             </h2>
-            <h2 id="alert-title" class="text-2xl font-extrabold text-red-700 mb-1 drop-shadow"></h2>
-            <h2 id="alert-address" class="text-2xl font-extrabold text-red-700 mb-1 drop-shadow"></h2>
+            <br>
+            <h2 id="alert-title" class="text-6xl font-extrabold text-red-700 mb-1 drop-shadow"></h2>
+            <br>
+            <h2 id="alert-address" class="text-5xl font-extrabold text-red-700 mb-1 drop-shadow break-words whitespace-normal"></h2>
+            <br>
             <button type="button"
-                    class="mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md
+                    class="text-3xl mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md
                         transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer"
                     onclick="okButton();">
                 OK
             </button>
             <button type="button"
-                    class="mt-4 bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md
+                    class="text-3xl mt-4 bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md
                         transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer"
                     onclick="batalButton();">
                 Batal
@@ -132,7 +135,7 @@
                             'outerRadius'     : wheelSize / 2 - 5,
                             'innerRadius'     : 50,
                             'responsive'      : true,
-                            'textFontSize'    : 18,
+                            'textFontSize'    : 20,
                             'textFontFamily'  : "Poppins",
                             'textOrientation' : 'vertical',
                             'textAlignment'   : 'outer',
@@ -181,7 +184,7 @@
             function showCustomAlert(title, address, id) {
                 const alert = document.getElementById("custom-alert");
                 const alertBox = document.getElementById("custom-alert-box");
-                document.getElementById("alert-title").textContent = "("+id+") " + title;
+                document.getElementById("alert-title").textContent = title + " ("+id+")";
                 document.getElementById("alert-address").textContent = address;
 
                 // Show
