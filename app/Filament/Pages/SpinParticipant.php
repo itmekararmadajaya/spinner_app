@@ -9,12 +9,14 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Tables\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SpinParticipant extends Page implements HasForms, HasTable
@@ -153,6 +155,15 @@ class SpinParticipant extends Page implements HasForms, HasTable
                     ->color('success')
                     ->requiresConfirmation()
                     ->action(fn ($record) => $this->makeWinner($record))
+            ])
+            ->bulkActions([ // ✅ Tambahkan bagian ini
+                BulkAction::make('Delete Selected')
+                    ->color('danger')
+                    ->icon('heroicon-o-trash')
+                    ->requiresConfirmation()
+                    ->action(function (Collection $records) {
+                        $records->each->delete();
+                    })
             ]);
     }
 }
