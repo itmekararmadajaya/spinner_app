@@ -67,10 +67,18 @@ class SpinParticipant extends Page implements HasForms, HasTable
     }
 
     public function getRandomColor() {
-        $r = random_int(150, 255);
-        $g = random_int(150, 255);
-        $b = random_int(150, 255);
-        return sprintf("#%02X%02X%02X", $r, $g, $b);
+        // $r = random_int(150, 255);
+        // $g = random_int(150, 255);
+        // $b = random_int(150, 255);
+        // return sprintf("#%02X%02X%02X", $r, $g, $b);
+
+        $components = [
+            random_int(0, 100),
+            random_int(100, 255),
+            random_int(0, 255)
+        ];
+        shuffle($components);
+        return sprintf("#%02X%02X%02X", $components[0], $components[1], $components[2]);
     }
 
     public function resetWinner(){

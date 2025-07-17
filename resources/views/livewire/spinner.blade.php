@@ -1,10 +1,11 @@
-<div class="bg-[#031843]">
+{{-- <div class="bg-[#031843]"> --}}
+<div style="background-image: url('{{ asset('asset/logo/background.png') }}'); background-size: cover; background-position: center;">
     <style>
         #parent {
             transform: rotate(-90deg);
             transform-origin: center;
             display: inline-block;
-            margin-left: 500px;
+            margin-left: 400px;
         }
     </style>
     <div align="center" id="parent">
@@ -13,11 +14,11 @@
             <div class="relative w-[600px] h-[600px] flex items-center justify-center bg-no-repeat bg-center bg-contain">
                 <div style="position: relative; width: 600px; height: 600px; margin: auto; rotate-[-45deg] origin-center">
                     <!-- Judul Spin to Win -->
-                    <div class="absolute top-[-250px] left-1/2 -translate-x-1/2 
+                    {{-- <div class="absolute top-[-250px] left-1/2 -translate-x-1/2 
                                 text-center font-bold text-[#FFD700] z-20
                                 whitespace-nowrap bg-[#031843] p-3 rounded-lg" style="width: 600px;">
                         <img src="{{asset('asset/logo/logona2.png')}}" alt="" srcset="">
-                    </div>
+                    </div> --}}
                     <div class="absolute top-[-130px] left-1/2 -translate-x-1/2 
                                 text-center font-bold text-[#FFD700] z-20
                                 whitespace-nowrap" style="font-size: 80px;">
@@ -112,6 +113,7 @@
         <script>
             let wheelSize = 700;
             var segments = @json($finalDatas);
+            
             let theWheel;
             let audio = new Audio(`{{asset('asset/sound/tick.mp3')}}`);
             let wheelSpinning = false;
@@ -141,6 +143,7 @@
                             'textAlignment'   : 'outer',
                             'numSegments'     : segments.length,
                             'segments'        : segments,
+                            'textFillStyle'   : '#FFFFFF',
                             'animation' : {
                                 'type'     : 'spinToStop',
                                 'duration' : 10,

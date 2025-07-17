@@ -21,6 +21,7 @@ class Spinner extends Component
             $finalDatas[] = [
                     'fillStyle' => $data->fill_style,
                     'id' => $data->id,
+                    'text' => $data->id."",
                     'full_name' => $data->full_name,
                     'name' => $data->name,
                     'city' => $data->city,
